@@ -86,6 +86,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     font-family: var(--fontInter);
     background-color: var(--colorBgHeader);
     display: flex;
@@ -104,6 +105,10 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.body-light .header_logo img {
+    filter: drop-shadow(-1px 1px 2px #000);
 }
 
 /* HEADER - Products */
@@ -226,8 +231,16 @@ a {
 
 .theme__button-i {
     font-size: 3rem;
-    color: #343434;
     transition: color .25s var(--timingFunction);
+}
+
+.body-dark .theme__button-i {
+    color: #343434;
+}
+
+.body-light .theme__button-i {
+    color: rgb(255, 255, 111);
+    text-shadow: 0 0 2px #000;
 }
 
 .theme__button:hover .theme__button-i {
@@ -237,4 +250,42 @@ a {
 .theme__button-p {
     font-size: 1.25rem;
     letter-spacing: 1px;
+}
+
+
+
+
+/* MAIN */
+
+/* MAIN - Section Home */
+
+.section_home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(assets/bgHome.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section_home div {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    display: grid;
+    place-items: center;
+}
+
+.home_h1 {
+    color: #f1f1f1;
+    font-family: var(--fontTeko);
+    font-size: 10rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: -2px 2px 5px #000;
+    padding: 1rem 3rem;
+}
+
+.home_h1 span {
+    color: #6BD41A;
 }
