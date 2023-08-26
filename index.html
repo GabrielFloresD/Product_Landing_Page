@@ -15,7 +15,9 @@
             <img src="assets/logoMonster2.webp" alt="Logo Monster Energy">
         </a>
         <nav class="header_nav">
-            <h3 class="nav_h3">Products <i class="fa-solid fa-caret-down"></i></h3>
+            <button type="button" class="nav_button">
+                Products <i class="fa-solid fa-caret-down"></i>
+            </button>
             <ul class="nav_ul">
                 <li class="nav__li">
                     <a href="#drink1" class="nav__li-link">Monster Energy</a>
@@ -41,20 +43,24 @@
             </ul>
         </nav>
         <div class="language_container">
-            <h4 class="container_h4">English <i class="fa-solid fa-language"></i></h4>
-            <ul class="container_ul">
-                <li class="container__li">
-                    <a href="index.html" class="li-language">English</a>
+            <button type="button" class="language__button">
+                <i class="fa-solid fa-globe"></i> English
+            </button>
+            <ul class="language__ul">
+                <li class="language__ul-li">
+                    <a href="index.html" class="li_lang">English</a>
                 </li>
-                <li class="lang__li">
-                    <a href="es/index.html" class="li-language">Spanish</a>
+                <li class="language__ul-li">
+                    <a href="es/index.html" class="li_lang">Spanish</a>
                 </li>
             </ul>
         </div>
         <div class="theme_container">
-            <button id="btn-theme">
-                <i class="fa-regular fa-lightbulb"></i>
-                <span>Dark</span> mode
+            <button id="btn-theme" class="theme__button">
+                <i class="theme__button-i fa-regular fa-lightbulb"></i>
+                <p class="theme__button-p">
+                    Mode: <span>Dark</span>
+                </p>
             </button>
         </div>
     </header>
