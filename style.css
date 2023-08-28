@@ -10,6 +10,9 @@
     --mainColor3: #00CC00;
     --mainColor4: #A3FF66;
     --mainColor5: #DBFF87; */
+    --colorBg: #101010;
+    --colorBgHeader: #1c1c1c;
+    --colorText: #f1f1f1;
     --fontInter: 'Inter', sans-serif;
     --fontPoppins: 'Poppins', sans-serif;
     --fontTeko: 'Teko', sans-serif;
@@ -53,18 +56,6 @@ body {
     background-color: var(--colorBg);
 }
 
-.body-dark {
-    --colorBg: #101010;
-    --colorBgHeader: #1c1c1c;
-    --colorText: #f1f1f1;
-}
-
-.body-light {
-    --colorBg: #efefef;
-    --colorBgHeader: #dbdbdb;
-    --colorText: #0f0f0f;
-}
-
 ul {
     list-style: none;
 }
@@ -72,6 +63,12 @@ ul {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-20px);}
+    100% {transform: translateY(0px);}
 }
 
 
@@ -206,52 +203,6 @@ a {
     display: none;
 }
 
-/* HEADER - Theme */
-
-.theme__button {
-    font-family: inherit;
-    color: inherit;
-    padding: 1rem 2rem;
-    position: relative;
-    cursor: pointer;
-    background: var(--colorBg);
-    border-radius: 3rem;
-    border: none;
-    outline: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: .5rem;
-    transition: background .35s var(--timingFunction);
-}
-
-.theme__button:hover {
-    background: var(--colorBgHeader);
-}
-
-.theme__button-i {
-    font-size: 3rem;
-    transition: color .25s var(--timingFunction);
-}
-
-.body-dark .theme__button-i {
-    color: #343434;
-}
-
-.body-light .theme__button-i {
-    color: rgb(255, 255, 111);
-    text-shadow: 0 0 2px #000;
-}
-
-.theme__button:hover .theme__button-i {
-    color: rgba(255, 255, 147, 0.75);
-}
-
-.theme__button-p {
-    font-size: 1.25rem;
-    letter-spacing: 1px;
-}
-
 
 
 
@@ -260,8 +211,9 @@ a {
 /* MAIN - Section Home */
 
 .section_home {
+    margin-top: 9rem;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     background-image: url(assets/bgHome.webp);
     background-position: center;
     background-repeat: no-repeat;
@@ -274,6 +226,7 @@ a {
     backdrop-filter: blur(10px);
     display: grid;
     place-items: center;
+    position: relative;
 }
 
 .home_h1 {
@@ -288,4 +241,234 @@ a {
 
 .home_h1 span {
     color: #6BD41A;
+}
+
+/* MAIN - Section Drink */
+
+.section_drink {
+    width: 75%;
+    margin: 9rem auto;
+    padding: 2px;
+    border-radius: 2rem;
+}
+
+#drink1 {
+    background: linear-gradient(135deg, var(--meColor1) 0%, var(--meColor2) 50%, var(--meColor3) 100%);
+}
+
+#drink2 {
+    background: linear-gradient(135deg, var(--vrColor1) 0%, var(--vrColor2) 100%);
+}
+
+#drink3 {
+    background: linear-gradient(135deg, var(--mlColor1) 0%, var(--mlColor2) 50%, var(--mlColor3) 100%);
+}
+
+#drink4 {
+    background: linear-gradient(135deg, var(--paColor1) 0%, var(--paColor2) 100%);
+}
+
+#drink5 {
+    background: linear-gradient(135deg, var(--suColor1) 0%, var(--suColor2) 100%);
+}
+
+#drink6 {
+    background: linear-gradient(135deg, var(--waColor1) 0%, var(--waColor2) 50%, var(--waColor3) 100%);
+}
+
+#drink7 {
+    background: linear-gradient(135deg, var(--muColor1) 0%, var(--muColor2) 100%);
+}
+
+.drink_container {
+    background-color: var(--colorBg);
+    border-radius: 2rem;
+    padding: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.container_img {
+    flex-basis: 15%;
+}
+
+.img_monster {
+    width: 20rem;
+    position: absolute;
+    top: -50px;
+    left: -70px;
+    animation: float 3s var(--timingFunction) infinite;
+}
+
+#drink2 .img_monster,
+#drink4 .img_monster,
+#drink6 .img_monster {
+    animation-delay: 1s;
+}
+
+.container_description {
+    flex-basis: 75%;
+    height: 45rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description_title {
+    flex-basis: 100%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #5f5f5f;
+}
+
+.description__h2 {
+    flex-basis: 60%;
+    font-size: 6.5rem;
+    line-height: 5.5rem;
+    font-family: var(--fontTeko);
+    text-transform: uppercase;
+    text-align: center;
+    user-select: none;
+}
+
+.description__img {
+    flex-basis: 40%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.description_text {
+    flex-basis: 100%;
+    height: 20rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.description_text p {
+    width: 60%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.description_flavor {
+    flex-basis: 100%;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    border: 2px solid #5f5f5f;
+}
+
+.flavor_h5 {
+    flex-basis: 30%;
+    font-size: 3rem;
+    font-family: var(--fontTeko);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    background-color: #5f5f5f20;
+    border-right: 2px solid #5f5f5f;
+}
+
+.flavor_text {
+    flex-basis: 70%;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container_info {
+    flex-basis: 55%;
+}
+
+.container_infoPerCan {
+    flex-basis: 45%;
+    font-family: var(--fontTeko);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoPerCan_h4 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.infoPerCan_div {
+    width: 40rem;
+    height: 25rem;
+    display: flex;
+    flex-wrap: wrap;
+    outline: 2px solid #5f5f5f;
+}
+
+.infoPerCan__number {
+    flex-basis: 50%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #5f5f5f35;
+    border-bottom: 2px solid #5f5f5f;
+}
+
+.infoPerCan__number:first-of-type {
+    border-right: 2px solid #5f5f5f;
+}
+
+.number_num {
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    user-select: none;
+}
+
+.number_text {
+    font-size: 2.5rem;
+    letter-spacing: .5px;
+    color: #5f5f5f;
+    user-select: none;
+}
+
+.infoPerCan__link {
+    flex-basis: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    color: #6BD41A;
+    transition: color .25s var(--timingFunction);
+}
+
+.infoPerCan__link:hover {
+    color: var(--paColor2);
+}
+
+.infoPerCan__link i {
+    margin-left: 1rem;
+    color: #5f5f5f;
+    transition: color .25s var(--timingFunction);
+}
+
+.infoPerCan__link:hover i {
+    color: var(--paColor2);
+}
+
+.infoPerCan_text {
+    font-family: var(--fontPoppins);
+    text-transform: none;
+    width: 40rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #5f5f5f;
+    text-align: center;
 }
