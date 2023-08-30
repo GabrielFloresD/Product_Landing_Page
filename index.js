@@ -6,21 +6,30 @@ const productsToggle = document.getElementById("products-toggle");
 
 const productsMenu = document.querySelector(".nav_ul");
 
-const header = document.getElementById("header");
+const main = document.getElementById("main");
 
-productsToggle.addEventListener("click", ()=> {
+const visibleElem = (menu,toggle) => {
+    menu.classList.remove("not-visible");
+    toggle.classList.toggle("active");
+}
+
+const notVisibleElem = (menu,toggle) => {
+    menu.classList.add("not-visible");
+    toggle.classList.remove("active");
+}
+
+productsToggle.addEventListener("click", () => {
     productsMenu.classList.toggle("nav_ul-visible");
-    productsMenu.classList.remove("not-visible")
-    productsToggle.classList.toggle("active");
+    visibleElem(productsMenu,productsToggle);
     if (productsMenu.classList.contains("nav_ul-visible")) {
         productsToggle.setAttribute("aria-label", "Close menu");
-        // Mouse "leave" Header efect
-        header.addEventListener("mouseleave", ()=> {
+        // Mouse when "click" main, menu close
+        main.addEventListener("click", ()=> {
             productsMenu.classList.remove("nav_ul-visible");
-            productsMenu.classList.add("not-visible");
-            productsToggle.classList.remove("active");
+            notVisibleElem(productsMenu,productsToggle);
             productsToggle.setAttribute("aria-label", "Open menu");
         });
+        // Mouse when "pick" an option in menu
         productsMenu.addEventListener("mouseup", () => {
             productsMenu.classList.remove("nav_ul-visible");
             productsToggle.classList.remove("active");
@@ -37,17 +46,16 @@ const languageToggle = document.getElementById("language-toggle");
 
 const languageMenu = document.querySelector(".language__ul");
 
-languageToggle.addEventListener("click", ()=> {
+languageToggle.addEventListener("click", () => {
     languageMenu.classList.toggle("language__ul-visible");
-    languageMenu.classList.remove("not-visible");
-    languageToggle.classList.toggle("active");
+    visibleElem(languageMenu,languageToggle);
     if (languageMenu.classList.contains("language__ul-visible")) {
         languageToggle.setAttribute("aria-label", "Close language menu");
+        // Mouse when "pick" an option in menu
         languageMenu.addEventListener("mouseup", () => {
             languageMenu.classList.remove("language__ul-visible");
-            languageToggle.classList.remove("active");
+            notVisibleElem(languageMenu,languageToggle);
             languageToggle.setAttribute("aria-label", "Open language menu");
-            languageMenu.classList.add("not-visible");
         });
     } else {
         languageToggle.setAttribute("aria-label", "Open language menu");
@@ -99,3 +107,24 @@ const tabsDrink6 = new Tabs("drink6");
 tabsDrink6.event();
 const tabsDrink7 = new Tabs("drink7");
 tabsDrink7.event();
+
+
+
+
+// FOOTER - Footer Newsletter
+
+const containerNewsletter = document.querySelector(".footer__newsletter");
+
+const inputNewsletter = document.querySelector(".newsletter_input");
+
+const buttonNewsletter = document.querySelector(".newsletter_button");
+
+inputNewsletter.addEventListener("focusin", () => {
+    containerNewsletter.classList.toggle("active");
+    buttonNewsletter.classList.toggle("active");
+});
+
+inputNewsletter.addEventListener("focusout", () => {
+    containerNewsletter.classList.toggle("active");
+    buttonNewsletter.classList.toggle("active");
+});
