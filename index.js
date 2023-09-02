@@ -21,6 +21,13 @@ const notVisibleElem = (menu,toggle) => {
 productsToggle.addEventListener("click", () => {
     productsMenu.classList.toggle("nav_ul-visible");
     visibleElem(productsMenu,productsToggle);
+    if (languageMenu.classList.contains("language__ul-visible")) {
+        languageToggle.setAttribute("aria-label", "Open language menu");
+        languageMenu.classList.remove("language__ul-visible");
+        languageMenu.classList.add("not-visible");
+        notVisibleElem(languageMenu,languageToggle);
+        return;
+    };
     if (productsMenu.classList.contains("nav_ul-visible")) {
         productsToggle.setAttribute("aria-label", "Close menu");
         // Mouse when "click" main, menu close
@@ -49,6 +56,13 @@ const languageMenu = document.querySelector(".language__ul");
 languageToggle.addEventListener("click", () => {
     languageMenu.classList.toggle("language__ul-visible");
     visibleElem(languageMenu,languageToggle);
+    if (productsMenu.classList.contains("nav_ul-visible")) {
+        productsToggle.setAttribute("aria-label", "Open menu");
+        productsMenu.classList.remove("nav_ul-visible");
+        productsMenu.classList.add("not-visible");
+        notVisibleElem(productsMenu,productsToggle);
+        return;
+    };
     if (languageMenu.classList.contains("language__ul-visible")) {
         languageToggle.setAttribute("aria-label", "Close language menu");
         // Mouse when "pick" an option in menu
