@@ -893,6 +893,17 @@ a {
     font-size: 1.3rem;
 }
 
+.footer__text-link {
+    color: #7c7c7c;
+    transition: color .25s, letter-spacing .25s;
+    transition-timing-function: var(--timingFunction);
+}
+
+.footer__text-link:hover {
+    color: #a1a1a1;
+    letter-spacing: 1px;
+}
+
 .footer_container:nth-of-type(2) .footer__h3,
 .footer_container:nth-of-type(3) .footer__h3{
     width: 60%;
